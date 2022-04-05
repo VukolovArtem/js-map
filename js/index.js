@@ -21,26 +21,40 @@
 // // wrapper();
 
 // ЗАМЫКАНИЕ
-function makeCounter() {
-  let i = 0; //переменная в замыкании;
+// function makeCounter() {
+//   let i = 0; //переменная в замыкании;
 
-  function increment() {
-    i++;
-    return i;
-  }
-  function decrement() {
-    i--;
-    return i;
-  }
-  function getCounter(){
-    return i;
-  }
+//   function increment() {
+//     i++;
+//     return i;
+//   }
+//   function decrement() {
+//     i--;
+//     return i;
+//   }
+//   function getCounter(){
+//     return i;
+//   }
 
-  return {
-    increment: increment,
-    decrement: decrement,
-    getCounter:getCounter,
-  };
-}
+//   return {
+//     increment: increment,
+//     decrement: decrement,
+//     getCounter:getCounter,
+//   };
+// }
 
-const obj = makeCounter();
+// const obj = makeCounter();
+// ???????????????????????????????
+// function makeAdder(x) {
+//   let result = x;
+//   function adder(y) {
+//     result += y;
+
+//     return result;
+//   }
+//   return adder;
+// }
+
+const makeAdder = (x) => (y) => (x += y);
+
+const add = makeAdder(10);
