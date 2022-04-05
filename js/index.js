@@ -1,61 +1,46 @@
-console.dir(document);
+// let test = 1234;
 
-// const h1 = document.getElementById("mainHeader");
-// const [thirdH2, firstH2, secondH2] = document.getElementsByTagName("h2");
-// const queryH1 = document.querySelector("#mainHeader");
-// const spans = document.querySelectorAll("span");
+// console.log(`log: ${test}`);
 
-// h1.addEventListener("click", () => {
-//   alert("clicked on h1");
-// });
-
-// const botton1 = document.querySelector(".button");
-
-// function enterListener() {
-//   alert("НЕ ВЕСИ НАД ДУШОЙ!");
+// function log() {
+//   console.log(`log: ${test}`);
 // }
 
-// function leaveListener() {
-//   alert("Спасибо!");
+// function wrapper() {
+//   let test = 4321;
+//   // console.log(`wrapper: ${test}`);
+
+//   function log() {
+//     console.log(test);
+//   }
+
+//   log();
 // }
 
-// botton1.addEventListener("mouseenter", enterListener);
-// botton1.addEventListener("mouseleave", leaveListener);
+// // log();
+// // wrapper();
 
-// botton1.removeEventListener("mouseleave", leaveListener);
+// ЗАМЫКАНИЕ
+function makeCounter() {
+  let i = 0; //переменная в замыкании;
 
+  function increment() {
+    i++;
+    return i;
+  }
+  function decrement() {
+    i--;
+    return i;
+  }
+  function getCounter(){
+    return i;
+  }
 
-// const btn = document.getElementById('btn');
-// let counter = 0;
-
-// const counterSpan = document.querySelector('#counterSpan');
-
-// const clickHandler=()=>{
-  
-//   counterSpan.innerText = ++counter;
-// };
-
-// const clickNull=()=>{
-//   counter = 0;
-//   counterSpan.innerText = counter;
-// };
-
-
-// btn.addEventListener('click', clickHandler);
-
-
-// const btn2 = document.getElementById('btn2');
-// btn2.addEventListener('click', clickNull);
-
-
-const btn = document.getElementById('btn');
-const rootElem = document.getElementById('root');
-
-function clickHandler() {
-  const messageText = prompt('Enter message');
-  const textPar = document.createElement('p');
-  textPar.innerText = messageText;
-  rootElem.append(textPar);
+  return {
+    increment: increment,
+    decrement: decrement,
+    getCounter:getCounter,
+  };
 }
 
-btn.addEventListener('click', clickHandler);
+const obj = makeCounter();
