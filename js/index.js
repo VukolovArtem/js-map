@@ -1,60 +1,43 @@
-// let test = 1234;
+'use strict';
 
-// console.log(`log: ${test}`);
+/*
+  Есть див с конпками
+  по нажатию на кнопку поменять цвет / цвет фона дива на тот
+  который на кнопке указан
+  информация про цвет кнопки хранится в data-* аттрибуте
+*/
 
-// function log() {
-//   console.log(`log: ${test}`);
+// const div = document.getElementById('root');
+
+// function listener(e) {
+//   const {
+//     target: {
+//       dataset: { color },
+//       parentElement,
+//     },
+//   } = e;
+//   console.dir(e.target);
+//   parentElement.style.backgroundColor = color;
 // }
 
-// function wrapper() {
-//   let test = 4321;
-//   // console.log(`wrapper: ${test}`);
+// const btns = document.querySelectorAll('button');
 
-//   function log() {
-//     console.log(test);
-//   }
+// btns.forEach((btn) => {
+//   btn.addEventListener('click', listener);
+// });
 
-//   log();
-// }
+function listener(e) {}
 
-// // log();
-// // wrapper();
+const div = document.querySelector('#root');
 
-// ЗАМЫКАНИЕ
-// function makeCounter() {
-//   let i = 0; //переменная в замыкании;
-
-//   function increment() {
-//     i++;
-//     return i;
-//   }
-//   function decrement() {
-//     i--;
-//     return i;
-//   }
-//   function getCounter(){
-//     return i;
-//   }
-
-//   return {
-//     increment: increment,
-//     decrement: decrement,
-//     getCounter:getCounter,
-//   };
-// }
-
-// const obj = makeCounter();
-// ???????????????????????????????
-// function makeAdder(x) {
-//   let result = x;
-//   function adder(y) {
-//     result += y;
-
-//     return result;
-//   }
-//   return adder;
-// }
-
-const makeAdder = (x) => (y) => (x += y);
-
-const add = makeAdder(10);
+div.addEventListener('click', (e) => {
+  const {
+    currentTarget,
+    target: {
+      dataset: { color },
+    },
+  } = e;
+  if (color) {
+    currentTarget.style.backgroundColor = color;
+  }
+});
