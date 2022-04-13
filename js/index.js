@@ -26,18 +26,38 @@
 //   btn.addEventListener('click', listener);
 // });
 
-function listener(e) {}
+// function listener(e) {}
 
-const div = document.querySelector('#root');
+// const div = document.querySelector('#root');
 
-div.addEventListener('click', (e) => {
+// div.addEventListener('click', (e) => {
+//   const {
+//     currentTarget,
+//     target: {
+//       dataset: { color },
+//     },
+//   } = e;
+//   if (color) {
+//     currentTarget.style.backgroundColor = color;
+//   }
+// });
+
+const form  = document.getElementById('todo-form');
+const todoList = document.getElementById('todo-list');
+
+form.addEventListener('submit', (e) =>{
+  e.preventDefault();
   const {
-    currentTarget,
-    target: {
-      dataset: { color },
-    },
+    target:{ elements },
+    target,
   } = e;
-  if (color) {
-    currentTarget.style.backgroundColor = color;
-  }
+
+  const taskText = elements.task.value;
+
+  todoState.push(taskText);
+  
+  const li = document.createElement('li');
+  li.textContent = taskText;
+  todoList.append(li);
+  target.reset();
 });

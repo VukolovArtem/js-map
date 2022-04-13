@@ -9,22 +9,10 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <button
-      data-my-attr="2"
-      data-test="data attribute"
-      data-boolean
-      data-capsAttribute="CAPS"
-      my-attr="1"
-    >
-      Login
-    </button>
-    <button>Sign Up</button>
-
-    <div id="root" style="width: 300px; height: 200px; background-color: gray">
-      <button data-color="red">Red</button>
-      <button data-color="green">Green</button>
-      <button data-color="blue">Blue</button>
-      <button data-color="gray">Gray</button>
-    </div>
+   <form id="todo-form">
+     <label>Enter tasck here: <input name="task"></label>
+     <button id="btn">Login</button>
+   </form>
+   <ul id="todo-list"></ul>
   </body>
 </html>
